@@ -17,7 +17,7 @@
     {
         Rolls.Add(pins);
 
-        if (pins == 10)
+        if (pins == 10) // strike
         {
             CurrentFrame++;
             int strikeBonus = 0;
@@ -32,6 +32,16 @@
             }
 
             FrameScores.Add(10 + strikeBonus);
+
+            Rolls.Add(0);
+        }
+        else if (CurrentRole % 2 == 0) // check for completed frame
+        {
+            int frameTotal = pins + Rolls[Rolls.Count - 2];
+
+            if (frameTotal == 10) // spare
+            {
+            }
         }
     }
 }
